@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 // Components
 import Contacts from './components/contacts';
 import Nav from './components/nav';
+import AddContact from './components/addContact';
 function app() {
     return (
 
@@ -20,6 +21,8 @@ function app() {
                     <Switch>
                         <div className="container">
                             <Route exact path="/" component={Contacts}/>
+
+                            <Route exact path="/contact/add" component={AddContact}/>
                         </div>
                     </Switch>
                 </Router>
