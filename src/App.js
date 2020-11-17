@@ -19,7 +19,8 @@ function app() {
                 <Router>
                     <Nav/>
                     <Switch>
-                        <div className="container">
+                        <div className="container mt-2">
+                            <h2 className = "text-secondary">Contacts <span className = "text-danger font-weight-normal">Manager App</span> </h2>
                             <Route exact path="/" component={Contacts}/>
 
                             <Route exact path="/contact/add" component={AddContact}/>

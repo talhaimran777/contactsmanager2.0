@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 function nav() {
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-danger p-0 px-2 mb-5">
+        <nav className="navbar navbar-expand-md navbar-dark bg-danger p-0 px-2">
             <div className="container">
                 <Link className="navbar-brand" to="/">Contacts Manager</Link>
                 <button className="navbar-toggler" type="button"
