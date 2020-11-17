@@ -14,12 +14,12 @@ export class contact extends Component {
         const {firstName, lastName, email, phone} = this.props.contact;
         return (
             <div className = "contact mt-2">
-                <div className="col col-md-9 mx-auto">
+                <div className="col-lg-8">
                     <div className="card">
                         <div className="card-header">
 
-                            <div className="row text-center">
-                                <div className="col-6">
+                            <div className="row">
+                                <div className="col-8">
                                     <h4>{firstName} {lastName} {' '}
                                         <i
                                             onClick={this.showDetailsHandler} 
@@ -27,7 +27,7 @@ export class contact extends Component {
                                         </i> 
                                     </h4>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-4 text-right">
                                     <i className="fas fa-edit text-success mr-4"
                                         style = {{fontSize: '20px', cursor: 'pointer'}}></i>
 
