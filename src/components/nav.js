@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 function nav() {
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-danger p-0 px-2">
+        <nav className="navbar navbar-expand-md navbar-dark bg-danger p-0 px-2 mb-5">
             <div className="container">
-                <a className="navbar-brand" href="#">Contacts Manager</a>
+                <Link className="navbar-brand" to="/">Contacts Manager</Link>
                 <button className="navbar-toggler" type="button"
                     data-toggle="collapse" data-target="#navbarNav">
                     <span className="navbar-toggler-icon"
@@ -26,7 +26,6 @@ function nav() {
                         <li className = "nav-item">
                             <Link to = "/logout" className = "nav-link">Logout</Link>
                         </li>
-
                     </ul>   
                 </div>
             </div>

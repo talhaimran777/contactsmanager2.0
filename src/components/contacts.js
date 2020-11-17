@@ -3,6 +3,7 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {firestoreConnect, isLoaded} from 'react-redux-firebase';
 
+import Contact from './contact';
 export class contacts extends Component {
     render() {       
         const {contacts} = this.props;
@@ -11,11 +12,11 @@ export class contacts extends Component {
                 <h1>Still Loading!</h1>
             );
         }
-        else return (
-            <div className = "contacts">
-                <h1>These are your contacts!</h1>
-            </div>
-        )
+        else{
+            return contacts.map(contact => (
+                <Contact key = {contact.id} contact={contact}/>
+            ));
+        }
     }
 }
 
