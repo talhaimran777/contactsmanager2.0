@@ -6,14 +6,23 @@ import {ReactReduxFirebaseProvider} from 'react-redux-firebase';
 import {store} from './store/store';
 import {rrfProps} from './store/store';
 
-// Contacts page
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+// Components
 import Contacts from './components/contacts';
+import Nav from './components/nav';
 function app() {
     return (
 
         <Provider store={store}>
             <ReactReduxFirebaseProvider {...rrfProps}>
-               <Contacts/>
+                <Router>
+                    <Nav/>
+                    <Switch>
+                        <div className="container">
+                            <Route exact path="/" component={Contacts}/>
+                        </div>
+                    </Switch>
+                </Router>
             </ReactReduxFirebaseProvider>
         </Provider>
     )
