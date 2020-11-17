@@ -9,7 +9,11 @@ export class contacts extends Component {
         const {contacts} = this.props;
         if(!isLoaded(contacts)){
             return (
-                <h1>Still Loading!</h1>
+                <div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
             );
         }
         else{
