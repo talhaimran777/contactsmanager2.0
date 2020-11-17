@@ -11,6 +11,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Contacts from './components/contacts';
 import Nav from './components/nav';
 import AddContact from './components/addContact';
+import EditContact from './components/editContact';
 function app() {
     return (
 
@@ -24,6 +25,8 @@ function app() {
                             <Route exact path="/" component={Contacts}/>
 
                             <Route exact path="/contact/add" component={AddContact}/>
+
+                            <Route exact path="/contact/edit/:id" component={EditContact}/>
                         </div>
                     </Switch>
                 </Router>

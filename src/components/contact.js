@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import moduleName from 'react-redux-firebase';
+import {Link} from 'react-router-dom';
+import EditContact from './editContact';
 export class contact extends Component {
     constructor(props){
         super(props);
@@ -11,7 +13,7 @@ export class contact extends Component {
 
     showDetailsHandler = () => this.setState(state => state.showDetails = !state.showDetails); 
     render() {
-        const {firstName, lastName, email, phone} = this.props.contact;
+        const {id, firstName, lastName, email, phone} = this.props.contact;
         return (
             <div className = "contact mt-2">
                 <div className="col-lg-8">
@@ -28,8 +30,10 @@ export class contact extends Component {
                                     </h4>
                                 </div>
                                 <div className="col-4 text-right">
-                                    <i className="fas fa-edit text-success mr-4"
+                                    <Link to = {`contact/edit/${id}`}>
+                                        <i className="fas fa-edit text-success mr-4"
                                         style = {{fontSize: '20px', cursor: 'pointer'}}></i>
+                                    </Link>
 
                                     <i className="fas fa-trash text-danger"
                                         style = {{fontSize: '20px', cursor: 'pointer'}}></i>
