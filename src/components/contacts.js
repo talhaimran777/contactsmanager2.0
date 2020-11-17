@@ -9,7 +9,7 @@ export class contacts extends Component {
         const {contacts} = this.props;
         if(!isLoaded(contacts)){
             return (
-                <div className="text-center">
+                <div className="text-center py-5 my-5">
                     <div className="spinner-border" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
