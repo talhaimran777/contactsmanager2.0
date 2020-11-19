@@ -4,11 +4,29 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 
 export class editContact extends Component {
-    state = {
-        firstName:'',
-        lastName:'',
-        email:'',
-        phone:''
+    constructor(props) {
+        super(props);
+
+        this.lastNameInput = React.createRef();
+        this.firstNameInput = React.createRef();
+        this.emailInput = React.createRef();
+        this.phoneInput = React.createRef();
+    }
+
+    onSubmitHandler = (e) =>{
+        e.preventDefault();
+        const {contact, firestore, history} = this.props;
+        const {id} = contact;
+
+        const updatedContact = {
+            firstName: this.firstNameInput.current.value,
+            lastName: this.lastNameInput.current.value,
+            email: this.emailInput.current.value,
+            phone: this.phoneInput.current.value
+        }
+
+        firestore.update({collection: 'contacts', doc: id}, updatedContact)
+        .then(history.push('/'));
     }
     render() {
         const {contact} = this.props;
@@ -27,6 +45,7 @@ export class editContact extends Component {
                                     type="text"
                                     name = "firstName"
                                     defaultValue = {firstName}
+                                    ref = {this.firstNameInput}
                                     placeholder = "Enter First Name..."
                                     onChange={this.onChangeHandler}
                                     required
@@ -38,6 +57,7 @@ export class editContact extends Component {
                                     type="text"
                                     name = "lastName"
                                     defaultValue = {lastName}
+                                    ref = {this.lastNameInput}
                                     placeholder = "Enter Last Name..."
                                     onChange={this.onChangeHandler}
                                     required
@@ -49,6 +69,7 @@ export class editContact extends Component {
                                     type="text"
                                     name = "email"
                                     defaultValue = {email}
+                                    ref = {this.emailInput}
                                     placeholder = "Enter Email..."
                                     onChange={this.onChangeHandler}
                                     required
@@ -60,6 +81,7 @@ export class editContact extends Component {
                                     type="text"
                                     name = "phone"
                                     defaultValue = {phone}
+                                    ref = {this.phoneInput}
                                     placeholder = "Enter Phone No..."
                                     onChange={this.onChangeHandler}
                                     required
