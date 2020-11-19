@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import {firebaseConnect} from 'react-redux-firebase';
 export class nav extends Component {
     state = {
         showDropdown: false
@@ -10,6 +11,15 @@ export class nav extends Component {
         const navBarCollapse = document.querySelector('.navbar-collapse');
         navBarToggler.classList.add('collapsed');
         navBarCollapse.classList.remove('show');
+    };
+
+    logoutHandler = () => {
+        // const navBarToggler = document.querySelector('.navbar-toggler');
+        // const navBarCollapse = document.querySelector('.navbar-collapse');
+        // navBarToggler.classList.add('collapsed');
+        // navBarCollapse.classList.remove('show');
+        const {firebase} = this.props;
+        firebase.logout();
     };
     render() {
         return (
@@ -35,7 +45,7 @@ export class nav extends Component {
                             <Link onClick = {this.collapseHandler} to = "/about" className = "nav-link">About</Link>
                         </li>
                         <li className = "nav-item">
-                            <Link onClick = {this.collapseHandler} to = "/logout" className = "nav-link">Logout</Link>
+                            <Link to = "" onClick = {this.logoutHandler} className = "nav-link">Logout</Link>
                         </li>
                     </ul>   
                 </div>
@@ -45,4 +55,4 @@ export class nav extends Component {
     }
 }
 
-export default nav;
+export default firebaseConnect()(nav);

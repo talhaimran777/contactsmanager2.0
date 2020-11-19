@@ -5,17 +5,14 @@ import {Link} from 'react-router-dom';
 import {firestoreConnect, isLoaded, isEmpty} from 'react-redux-firebase';
 
 import Contact from './contact';
+import Spinner from './spinner/spinner';
 export class contacts extends Component {
     render() {       
         const {contacts} = this.props;
 
         if(!isLoaded(contacts)){
             return (
-                <div className="text-center py-5 my-5">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
+                <Spinner/>
             );
         }
 
