@@ -14,6 +14,7 @@ import AddContact from './components/addContact';
 import EditContact from './components/editContact';
 import AboutPage from './components/aboutPage';
 import ErrorPage from './components/errorPage';
+import Login from './components/login';
 function app() {
     return (
 
@@ -24,6 +25,8 @@ function app() {
                     <Switch>
                         <div className="container mt-2">
                             <h2 className = "text-secondary mb-4">Contacts <span className = "text-danger font-weight-normal">Manager App</span> </h2>
+                            <Route exact path="/login" component={Login}/>
+
                             <Route exact path="/" component={Contacts}/>
 
                             <Route exact path="/contact/add" component={AddContact}/>
