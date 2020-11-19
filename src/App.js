@@ -12,6 +12,8 @@ import Contacts from './components/contacts';
 import Nav from './components/nav';
 import AddContact from './components/addContact';
 import EditContact from './components/editContact';
+import AboutPage from './components/aboutPage';
+import ErrorPage from './components/errorPage';
 function app() {
     return (
 
@@ -27,6 +29,9 @@ function app() {
                             <Route exact path="/contact/add" component={AddContact}/>
 
                             <Route exact path="/contact/edit/:id" component={EditContact}/>
+
+                            <Route exact path="/about" component = {AboutPage}/>
+                            
                         </div>
                     </Switch>
                 </Router>
