@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import moduleName from 'react-redux-firebase';
+import {firestoreConnect} from 'react-redux-firebase';
 import {Link} from 'react-router-dom';
-import EditContact from './editContact';
 export class contact extends Component {
     constructor(props){
         super(props);
@@ -11,7 +10,15 @@ export class contact extends Component {
         }
     }
 
-    showDetailsHandler = () => this.setState(state => state.showDetails = !state.showDetails); 
+    showDetailsHandler = () => this.setState(state => state.showDetails = !state.showDetails);
+    
+    deleteContactHandler = (e) => {
+        e.preventDefault();
+        const {firestore, contact} = this.props;
+        const {id} = contact;
+
+        firestore.delete({collection: 'contacts', doc: id});
+    }
     render() {
         const {id, firstName, lastName, email, phone} = this.props.contact;
         return (
@@ -36,7 +43,8 @@ export class contact extends Component {
                                     </Link>
 
                                     <i className="fas fa-trash text-danger"
-                                        style = {{fontSize: '20px', cursor: 'pointer'}}></i>
+                                        style = {{fontSize: '20px', cursor: 'pointer'}}
+                                        onClick = {this.deleteContactHandler}></i>
                                 </div>
                             </div>
                         </div>
@@ -58,4 +66,4 @@ export class contact extends Component {
     }
 }
 
-export default contact;
+export default firestoreConnect()(contact);
